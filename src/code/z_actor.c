@@ -152,8 +152,7 @@ void Actor_TitleCardUpdate(GlobalContext* ctxt, TitleCardContext* titleCtxt) {
         if (DECR(titleCtxt->fadeOutDelay) == 0) {
             Lib_StepTowardsCheck_s(&titleCtxt->alpha, 0, 30);
             Lib_StepTowardsCheck_s(&titleCtxt->color, 0, 70);
-        }
-        else {
+        } else {
             Lib_StepTowardsCheck_s(&titleCtxt->alpha, 255, 10);
             Lib_StepTowardsCheck_s(&titleCtxt->color, 255, 20);
         }
@@ -588,13 +587,12 @@ void Actor_FreeOverlay(ActorOverlayTableEntry* entry) {
     if (entry->clients == 0) {
         ramAddr = entry->ramAddr;
         if (ramAddr != 0) {
-	    //Bit 1 - always loaded
+            //Bit 1 - always loaded
             if ((entry->flags & 2) == 0) {
-		//Bit 0 - don't alloc memory
+                //Bit 0 - don't alloc memory
                 if ((entry->flags & 1) != 0) {
                     entry->ramAddr = 0;
-                }
-                else {
+                } else {
                     zelda_free(ramAddr);
                     entry->ramAddr = 0;
                 }
@@ -724,4 +722,3 @@ GLOBAL_ASM("asm/non_matchings/z_actor//func_800BE63C.asm")
 GLOBAL_ASM("asm/non_matchings/z_actor//func_800BE680.asm")
 
 GLOBAL_ASM("asm/non_matchings/z_actor//func_800BF7CC.asm")
-
